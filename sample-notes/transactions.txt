@@ -1,0 +1,11 @@
+Transactions and Concurrency Control
+
+A transaction is a logical unit of work that must be executed completely or not at all. The ACID properties describe what a reliable transaction guarantees: Atomicity, Consistency, Isolation and Durability.
+
+Atomicity means all operations in the transaction succeed or the whole transaction is rolled back. If a bank transfer debits one account but the credit fails, the debit is undone.
+
+Isolation means concurrent transactions do not see each other's intermediate state. Isolation levels include read uncommitted, read committed, repeatable read and serializable. Weaker levels allow anomalies such as dirty reads, non-repeatable reads and phantom reads.
+
+Two-phase locking (2PL) guarantees conflict serializability. In the growing phase a transaction acquires locks; in the shrinking phase it releases them and may not acquire new ones. Strict 2PL holds exclusive locks until commit, which prevents cascading rollbacks.
+
+Durability is provided by write-ahead logging: changes are written to the log before the data pages, so committed work survives a crash and can be redone during recovery.

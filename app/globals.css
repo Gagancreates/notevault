@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-sans: ui-sans-serif, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+body {
+  @apply bg-[#f6f7f9] text-ink antialiased;
+}
+
+mark {
+  @apply bg-amber-100 text-ink rounded px-0.5;
+}
+
+@layer components {
+.input {
+  @apply w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm outline-none transition
+         focus:border-accent focus:ring-2 focus:ring-accent/20;
+}
+.label {
+  @apply mb-1 block text-xs font-medium uppercase tracking-wide text-slate-500;
+}
+.card {
+  @apply rounded-xl border border-slate-200 bg-white;
+}
+.btn {
+  @apply inline-flex items-center justify-center gap-2 rounded-lg px-3.5 py-2 text-sm font-medium transition
+         disabled:cursor-not-allowed disabled:opacity-50;
+}
+.btn-primary {
+  @apply btn bg-accent text-white hover:bg-[#2f49e0];
+}
+.btn-ghost {
+  @apply btn border border-slate-300 bg-white text-ink hover:bg-slate-50;
+}
+.btn-danger {
+  @apply btn border border-red-200 bg-white text-red-600 hover:bg-red-50;
+}
+.th {
+  @apply px-4 py-2.5 text-left text-xs font-medium uppercase tracking-wide text-slate-500;
+}
+.td {
+  @apply px-4 py-3 text-sm;
+}
+}

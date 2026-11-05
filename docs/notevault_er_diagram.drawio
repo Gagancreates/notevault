@@ -1,0 +1,137 @@
+<mxfile host="app.diagrams.net" modified="2026-08-24T00:00:00.000Z" agent="Claude" version="24.0.0" type="device">
+  <diagram name="NoteVault ER Diagram" id="notevault-er">
+    <mxGraphModel dx="1400" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- USERS -->
+        <mxCell id="users" value="users" style="swimlane;whiteSpace=wrap;html=1;startSize=26;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="60" y="60" width="220" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="u1" value="PK  id : UUID" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=6;fontStyle=4" vertex="1" parent="users">
+          <mxGeometry y="26" width="220" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="u2" value="name : VARCHAR" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=6" vertex="1" parent="users">
+          <mxGeometry y="52" width="220" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="u3" value="email : VARCHAR (UNIQUE)" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=6" vertex="1" parent="users">
+          <mxGeometry y="78" width="220" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="u4" value="password_hash : VARCHAR" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=6" vertex="1" parent="users">
+          <mxGeometry y="104" width="220" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="u5" value="role : ENUM(admin,user)" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=6" vertex="1" parent="users">
+          <mxGeometry y="130" width="220" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="u6" value="created_at : TIMESTAMP" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=6" vertex="1" parent="users">
+          <mxGeometry y="156" width="220" height="26" as="geometry" />
+        </mxCell>
+
+        <!-- FOLDERS -->
+        <mxCell id="folders" value="folders" style="swimlane;whiteSpace=wrap;html=1;startSize=26;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="360" y="60" width="220" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="f1" value="PK  id : UUID" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=6;fontStyle=4" vertex="1" parent="folders">
+          <mxGeometry y="26" width="220" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="f2" value="FK  user_id : UUID" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=6;fontStyle=4" vertex="1" parent="folders">
+          <mxGeometry y="52" width="220" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="f3" value="name : VARCHAR" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=6" vertex="1" parent="folders">
+          <mxGeometry y="78" width="220" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="f4" value="created_at : TIMESTAMP" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=6" vertex="1" parent="folders">
+          <mxGeometry y="104" width="220" height="26" as="geometry" />
+        </mxCell>
+
+        <!-- DOCUMENTS -->
+        <mxCell id="documents" value="documents" style="swimlane;whiteSpace=wrap;html=1;startSize=26;fillColor=#ffe6cc;strokeColor=#d79b00;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="660" y="60" width="240" height="234" as="geometry" />
+        </mxCell>
+        <mxCell id="d1" value="PK  id : UUID" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=6;fontStyle=4" vertex="1" parent="documents">
+          <mxGeometry y="26" width="240" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="d2" value="FK  user_id : UUID" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=6;fontStyle=4" vertex="1" parent="documents">
+          <mxGeometry y="52" width="240" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="d3" value="FK  folder_id : UUID (NULL)" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=6;fontStyle=4" vertex="1" parent="documents">
+          <mxGeometry y="78" width="240" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="d4" value="title : VARCHAR" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=6" vertex="1" parent="documents">
+          <mxGeometry y="104" width="240" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="d5" value="file_type : VARCHAR" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=6" vertex="1" parent="documents">
+          <mxGeometry y="130" width="240" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="d6" value="status : ENUM(pending,ready)" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=6" vertex="1" parent="documents">
+          <mxGeometry y="156" width="240" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="d7" value="uploaded_at : TIMESTAMP" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=6" vertex="1" parent="documents">
+          <mxGeometry y="182" width="240" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="d8" value="storage_path : VARCHAR" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=6" vertex="1" parent="documents">
+          <mxGeometry y="208" width="240" height="26" as="geometry" />
+        </mxCell>
+
+        <!-- CHUNKS -->
+        <mxCell id="chunks" value="chunks" style="swimlane;whiteSpace=wrap;html=1;startSize=26;fillColor=#f8cecc;strokeColor=#b85450;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="1000" y="60" width="240" height="182" as="geometry" />
+        </mxCell>
+        <mxCell id="c1" value="PK  id : UUID" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=6;fontStyle=4" vertex="1" parent="chunks">
+          <mxGeometry y="26" width="240" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="c2" value="FK  document_id : UUID" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=6;fontStyle=4" vertex="1" parent="chunks">
+          <mxGeometry y="52" width="240" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="c3" value="chunk_index : INT" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=6" vertex="1" parent="chunks">
+          <mxGeometry y="78" width="240" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="c4" value="content : TEXT" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=6" vertex="1" parent="chunks">
+          <mxGeometry y="104" width="240" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="c5" value="embedding : VECTOR(384)" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=6" vertex="1" parent="chunks">
+          <mxGeometry y="130" width="240" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="c6" value="created_at : TIMESTAMP" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=6" vertex="1" parent="chunks">
+          <mxGeometry y="156" width="240" height="26" as="geometry" />
+        </mxCell>
+
+        <!-- QUERY_LOGS -->
+        <mxCell id="query_logs" value="query_logs" style="swimlane;whiteSpace=wrap;html=1;startSize=26;fillColor=#e1d5e7;strokeColor=#9673a6;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="360" y="320" width="220" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="q1" value="PK  id : UUID" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=6;fontStyle=4" vertex="1" parent="query_logs">
+          <mxGeometry y="26" width="220" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="q2" value="FK  user_id : UUID" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=6;fontStyle=4" vertex="1" parent="query_logs">
+          <mxGeometry y="52" width="220" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="q3" value="query_text : TEXT" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=6" vertex="1" parent="query_logs">
+          <mxGeometry y="78" width="220" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="q4" value="created_at : TIMESTAMP" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=6" vertex="1" parent="query_logs">
+          <mxGeometry y="104" width="220" height="26" as="geometry" />
+        </mxCell>
+
+        <!-- RELATIONSHIPS -->
+        <mxCell id="e1" style="edgeStyle=entityRelationEdgeStyle;html=1;startArrow=ERone;endArrow=ERmany;fontSize=12;" edge="1" parent="1" source="users" target="folders">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" style="edgeStyle=entityRelationEdgeStyle;html=1;startArrow=ERone;endArrow=ERmany;fontSize=12;" edge="1" parent="1" source="users" target="documents">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" style="edgeStyle=entityRelationEdgeStyle;html=1;startArrow=ERone;endArrow=ERmany;fontSize=12;" edge="1" parent="1" source="folders" target="documents">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" style="edgeStyle=entityRelationEdgeStyle;html=1;startArrow=ERone;endArrow=ERmany;fontSize=12;" edge="1" parent="1" source="documents" target="chunks">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" style="edgeStyle=entityRelationEdgeStyle;html=1;startArrow=ERone;endArrow=ERmany;fontSize=12;" edge="1" parent="1" source="users" target="query_logs">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

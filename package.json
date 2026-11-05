@@ -1,0 +1,35 @@
+{
+  "name": "notevault",
+  "version": "1.0.0",
+  "private": true,
+  "description": "NoteVault: semantic search over course notes (Next.js + PostgreSQL + pgvector)",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "db:setup": "node scripts/db-setup.mjs",
+    "db:reset": "node scripts/db-setup.mjs --reset",
+    "test:db": "node --test tests/db.test.mjs",
+    "test:api": "node --test tests/api.test.mjs"
+  },
+  "dependencies": {
+    "jose": "5.9.6",
+    "next": "14.2.35",
+    "pg": "8.13.1",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "unpdf": "1.0.6",
+    "zod": "3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "20.17.6",
+    "@types/pg": "8.11.10",
+    "@types/react": "18.3.12",
+    "@types/react-dom": "18.3.1",
+    "autoprefixer": "10.4.20",
+    "postcss": "8.4.49",
+    "tailwindcss": "3.4.15",
+    "typescript": "5.6.3"
+  }
+}
