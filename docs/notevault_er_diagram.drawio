@@ -47,7 +47,7 @@
 
         <!-- DOCUMENTS -->
         <mxCell id="documents" value="documents" style="swimlane;whiteSpace=wrap;html=1;startSize=26;fillColor=#ffe6cc;strokeColor=#d79b00;fontStyle=1" vertex="1" parent="1">
-          <mxGeometry x="660" y="60" width="240" height="234" as="geometry" />
+          <mxGeometry x="660" y="60" width="240" height="260" as="geometry" />
         </mxCell>
         <mxCell id="d1" value="PK  id : UUID" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=6;fontStyle=4" vertex="1" parent="documents">
           <mxGeometry y="26" width="240" height="26" as="geometry" />
@@ -72,6 +72,9 @@
         </mxCell>
         <mxCell id="d8" value="storage_path : VARCHAR" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=6" vertex="1" parent="documents">
           <mxGeometry y="208" width="240" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="d9" value="chunk_count : INT" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=6" vertex="1" parent="documents">
+          <mxGeometry y="234" width="240" height="26" as="geometry" />
         </mxCell>
 
         <!-- CHUNKS -->
@@ -99,7 +102,7 @@
 
         <!-- QUERY_LOGS -->
         <mxCell id="query_logs" value="query_logs" style="swimlane;whiteSpace=wrap;html=1;startSize=26;fillColor=#e1d5e7;strokeColor=#9673a6;fontStyle=1" vertex="1" parent="1">
-          <mxGeometry x="360" y="320" width="220" height="130" as="geometry" />
+          <mxGeometry x="360" y="320" width="220" height="182" as="geometry" />
         </mxCell>
         <mxCell id="q1" value="PK  id : UUID" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=6;fontStyle=4" vertex="1" parent="query_logs">
           <mxGeometry y="26" width="220" height="26" as="geometry" />
@@ -112,6 +115,12 @@
         </mxCell>
         <mxCell id="q4" value="created_at : TIMESTAMP" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=6" vertex="1" parent="query_logs">
           <mxGeometry y="104" width="220" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="q5" value="mode : ENUM(semantic,keyword,hybrid)" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=6" vertex="1" parent="query_logs">
+          <mxGeometry y="130" width="220" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="q6" value="result_count : INT" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=6" vertex="1" parent="query_logs">
+          <mxGeometry y="156" width="220" height="26" as="geometry" />
         </mxCell>
 
         <!-- RELATIONSHIPS -->
